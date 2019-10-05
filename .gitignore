@@ -1,0 +1,4 @@
+__pucache__/
+.idea/
+*pyc
+db.sqlite3
