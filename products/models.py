@@ -48,8 +48,10 @@ def modify_out_of_stock(sender, instance, *args, **kwargs):
     pre_save signal to modify the out of stock field
     if in_stock_qty exists
     """
-    if instance.in_stock_qty:
+    if instance.in_stock_qty and instance.out_of_stock:
         instance.out_of_stock = False
+    elif not instance.in_stock_qty and not instance.out_of_stock:
+        instance.out_of_stock = True
 
 
 @receiver(m2m_changed, sender=Product.categories.through)

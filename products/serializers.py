@@ -29,3 +29,7 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = '__all__'
         read_only_fields = ("out_of_stock",)
 
+
+class CategoryTotalSerializer(serializers.Serializer):
+    categories = serializers.ListField(child=serializers.IntegerField())
+

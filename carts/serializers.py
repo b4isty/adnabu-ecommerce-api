@@ -1,7 +1,7 @@
 from rest_framework import serializers
-
+from  accounts.serializers import UserSerializer
 from products.serializers import ProductSerializer
-from .models import Cart
+from .models import Cart, Order
 
 
 class CartCreateSerializer(serializers.ModelSerializer):
@@ -26,4 +26,15 @@ class CartUpdateSerializer(serializers.ModelSerializer):
         read_only_fields = ("user", "active", "total_price")
 
 
+class OrderSerializer(serializers.ModelSerializer):
+    """
+    serializer for order model
+    """
+    user = UserSerializer(read_only=True)
+
+    class Meta:
+        model = Order
+        fields = '__all__'
+        read_only_fields = ("cart", "total")
+        depth = 1
 
