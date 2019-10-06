@@ -30,13 +30,16 @@ class Product(models.Model):
     """
     Model for Product
     """
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, null=True)
     price = models.DecimalField(decimal_places=2, max_digits=30, default=0.00)
     in_stock_qty = models.IntegerField(default=0)
     out_of_stock = models.BooleanField(default=True)
     categories = models.ManyToManyField(Category, blank=True, related_name="products")
     sub_categories = models.ManyToManyField(SubCategory, blank=True, related_name='products')
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
 
 
 @receiver(pre_save, sender=Product)
