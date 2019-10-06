@@ -16,6 +16,7 @@ from products.models import Product
 
 User = get_user_model()
 
+
 class CartAPIView(GenericAPIView):
     """
     Class for get and create Cart

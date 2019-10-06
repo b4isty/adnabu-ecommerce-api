@@ -71,6 +71,9 @@ class ProductUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
 
 
 class CategoryTotalAPIView(GenericAPIView):
+    """
+    Class to get sum of product prices
+    """
     serializer_class = CategoryTotalSerializer
     permission_classes = (IsSuperUseOrReadOnly,)
 

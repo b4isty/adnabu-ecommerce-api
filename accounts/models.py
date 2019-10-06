@@ -5,6 +5,9 @@ from django.contrib.auth.models import AbstractUser
 
 
 class CustomUserModel(AbstractUser):
+    """
+    Custom User Model
+    """
     email = models.EmailField(unique=True, max_length=40, blank=False, null=True)
 
     def __str__(self):

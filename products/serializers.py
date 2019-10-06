@@ -31,5 +31,8 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class CategoryTotalSerializer(serializers.Serializer):
+    """
+    Serializer to calculate sum of product prices
+    """
     categories = serializers.ListField(child=serializers.IntegerField())
 

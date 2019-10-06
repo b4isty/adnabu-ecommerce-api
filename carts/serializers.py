@@ -28,7 +28,7 @@ class CartUpdateSerializer(serializers.ModelSerializer):
 
 class OrderSerializer(serializers.ModelSerializer):
     """
-    serializer for order model
+    serializer for Order model
     """
     user = UserSerializer(read_only=True)
 
